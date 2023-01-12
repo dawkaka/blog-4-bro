@@ -1,6 +1,6 @@
 :root {
     --p-color: #132F7A;
-    --tw-gradient-stops: rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)
+    --tw-gradient-stops: rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)
 }
 
 .nav-link {

@@ -1,13 +1,13 @@
 import Container from '../components/container'
 import MoreStories from '../components/more-stories'
-import Navbar from '../components/navbar'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../interfaces/post'
-import Header from "../components/hero"
+import Hero from "../components/hero"
 import Delegates from "../components/delegates-home"
-
+import { GiCutDiamond } from "react-icons/gi"
+import { FaHandshake, FaMoneyBill } from 'react-icons/fa'
 type Props = {
   allPosts: Post[]
 }
@@ -21,13 +21,46 @@ export default function Index({ allPosts }: Props) {
         <Head>
           <title>NPP Salaga South Constituency</title>
         </Head>
-        <Header />
+        <Hero />
+        <Goals />
         <Delegates />
         <Container>
           {morePosts.length > 0 && <MoreStories posts={allPosts} />}
         </Container>
       </Layout>
     </>
+  )
+}
+
+
+const Goals = () => {
+  const iconSize = 40
+  return (
+    <section className="py-[80px] sm:py-[100px]">
+      <Container>
+        <div className="grid grid-cols-1 sm:grid-cols-3">
+          <div className="flex flex-col gap-2 items-center py-10 px-5 sm:px-10 text-center bg-[red] text-white">
+            <GiCutDiamond size={iconSize} />
+            <h4 className="text-2xl sm:text-3xl font-bold">Stable Democracy</h4>
+            <p>
+              A stable, peaceful, united and democratic nation dedicated to the promotion of the welfare, freedom and prosperity of its citizens
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 items-center py-10 px-5 sm:px-10 text-center">
+            <FaHandshake size={iconSize} />
+            <h4 className="text-2xl sm:text-3xl font-bold">Good Governance</h4>
+            <p>
+              A country whose governance is imbued with the principles of liberal democracy, the rule of law, respect for human rights and social justice.            </p>
+          </div>
+          <div className="flex flex-col gap-2 items-center py-10 px-5 sm:px-10 text-center bg-[var(--p-color)] text-white">
+            <FaMoneyBill size={iconSize} />
+            <h4 className="text-2xl sm:text-3xl font-bold">Prosperity</h4>
+            <p>
+              that the key to creating prosperity for all is to unleash the energies of the private sector through the development of an entrepreneurial free enterprise economy            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
   )
 }
 
