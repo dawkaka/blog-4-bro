@@ -1,22 +1,30 @@
+import Image from "next/image"
+import Link from "next/link"
 import { CMS_NAME } from '../lib/constants'
 
 const Intro = () => {
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        NPP.
-      </h1>
-      <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{' '}
-        <a
-          href="https://nextjs.org/"
-          className="underline hover:text-blue-600 duration-200 transition-colors"
-        >
-          Next.js
-        </a>{' '}
-        and {CMS_NAME}.
-      </h4>
-    </section>
+    <div className="max-w-[1400px] mx-[auto] flex flex-col items-center">
+      <div className="w-[min(100vw,1000px)] p-5">
+        <Image src={"/assets/npp-logo2.png"} width={70} height={70} alt="npp logo" />
+      </div>
+      <nav className="flex justify-center px-5 w-[min(100vw,1300px)] bg-[var(--p-color)] text-[white] h-[70px] items-center rounded z-10">
+        <ul className="w-[min(100%,800px)] flex justify-between gap-5 text-[18px]">
+          <li>
+            <Link href={"/"}>Home</Link>
+          </li>
+          <li>
+            <Link href={"/delegates"}>Delegates</Link>
+          </li>
+          <li>
+            <Link href={"/events"}>Events</Link>
+          </li>
+          <li>
+            <Link href={"/blog"}>Blog</Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   )
 }
 
