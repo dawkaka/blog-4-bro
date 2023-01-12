@@ -43,12 +43,12 @@ const Carousel: React.FunctionComponent<{ children: ReactNode[] }> = ({ children
                 {children}
             </div>
             {curr !== 0 && <div role="button" onClick={() => scroll("left")} className="prev">
-                <MdOutlineNavigateNext size={30} className="aIcon" />
+                <MdOutlineNavigateNext size={30} className="aIcon" color="white" />
             </div>
             }
             {curr < files.length - 1 &&
                 <div role="button" onClick={() => scroll("right")} className="next">
-                    <MdOutlineNavigateNext size={30} className="aIcon" />
+                    <MdOutlineNavigateNext size={30} className="aIcon" color="white" />
                 </div>
             }
         </div>
