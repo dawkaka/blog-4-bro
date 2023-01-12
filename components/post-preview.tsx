@@ -1,8 +1,10 @@
 import Avatar from './avatar'
 import DateFormatter from './date-formatter'
+import cn from 'classnames'
 import CoverImage from './cover-image'
 import Link from 'next/link'
 import type Author from '../interfaces/author'
+import Image from "next/image"
 
 type Props = {
   title: string
@@ -24,9 +26,17 @@ const PostPreview = ({
   return (
     <div>
       <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
+        <img
+          src={coverImage}
+          alt={`Cover Image for ${title}`}
+          className=""
+          style={{
+            height: "300px",
+            objectFit: "cover"
+          }}
+        />
       </div>
-      <h3 className="text-3xl mb-3 leading-snug">
+      <h3 className="text-2xl mb-3 leading-normal">
         <Link
           as={`/posts/${slug}`}
           href="/posts/[slug]"
@@ -35,11 +45,9 @@ const PostPreview = ({
           {title}
         </Link>
       </h3>
-      <div className="text-lg mb-4">
+      <div className="mb-4 text-[grey]">
         <DateFormatter dateString={date} />
       </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
     </div>
   )
 }

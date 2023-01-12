@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import Footer from './footer'
-import Intro from "./intro"
 import Meta from './meta'
+import NavBar from "./navbar"
 
 type Props = {
   preview?: boolean
@@ -14,7 +14,7 @@ const Layout = ({ preview, children }: Props) => {
     <>
       <Meta />
       <div>
-        <Intro />
+        <NavBar />
         <main>{children}</main>
       </div>
       <Footer />
