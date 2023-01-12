@@ -13,7 +13,7 @@ export default function Delegate({ name, picture, position }: Props) {
                 <img src={picture} width={"100%"} alt={name} style={{ aspectRatio: 1 / 1, objectFit: "cover" }} />
             </div>
             <div className="text-center">
-                <h3 className="text-3xl">{name}</h3>
+                <h3 className="text-2xl sm:text-3xl">{name}</h3>
                 <p className="font-normal text-[16px] mt-2 text-[red] uppercase">{position}</p>
             </div>
         </article>

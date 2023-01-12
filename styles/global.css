@@ -10,6 +10,11 @@
     height: 100%;
 }
 
+.l-sm {
+    text-align: left;
+    width: 100%;
+}
+
 .nav-link>a {
     display: flex;
     justify-content: center;
@@ -20,17 +25,32 @@
     transition: background-color .3s;
 }
 
+.l-sm>a {
+    text-align: left;
+    padding: 5px;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: bold;
+}
+
+
+
 .nav-link>a:hover {
     background-color: red;
+}
+
+.l-sm>a:hover {
+    border-bottom: 1px solid white;
 }
 
 .slider {
     scroll-snap-type: x mandatory;
     height: 100%;
     display: flex;
+    align-items: flex-start;
     overflow-y: hidden;
     align-tracks: center;
-    align-items: center;
     -webkit-overflow-scrolling: touch;
     overflow-x: scroll;
     -ms-overflow-style: none;
@@ -77,4 +97,11 @@
 
 .next {
     right: 0;
+}
+
+.menu-line {
+    width: 40px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: white
 }

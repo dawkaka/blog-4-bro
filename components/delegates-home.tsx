@@ -8,7 +8,7 @@ function Delegates() {
     return (
         <section className="bg-[var(--p-color)] text-[white] text-center py-[80px]  md:py-[100px] px-5 font-bold">
             <Container>
-                <h2 className="mb-5 text-5xl">THE DELEGATES</h2>
+                <h2 className="mb-5 text-2xl md:text-4xl">THE DELEGATES</h2>
             </Container>
 
             <div className="w-[min(100%,500px)] mx-auto">
