@@ -13,8 +13,6 @@ type Props = {
 }
 
 export default function Index({ allPosts }: Props) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
   return (
     <>
       <Layout>
@@ -25,7 +23,7 @@ export default function Index({ allPosts }: Props) {
         <Goals />
         <Delegates />
         <Container>
-          {morePosts.length > 0 && <MoreStories posts={allPosts} />}
+          {allPosts.length > 0 && <MoreStories posts={allPosts} />}
         </Container>
         <MediaUpdate />
       </Layout>
