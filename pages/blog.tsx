@@ -7,7 +7,7 @@ export default function Blog({ allPosts }) {
     return (
         <Layout>
             <Container>
-                {allPosts.length > 0 && <MoreStories posts={allPosts} />}
+                {allPosts.length > 0 && <MoreStories posts={allPosts} home={false} />}
             </Container>
         </Layout>
     )
