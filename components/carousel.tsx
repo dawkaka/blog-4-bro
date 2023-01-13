@@ -7,9 +7,10 @@ const Carousel: React.FunctionComponent<{ children: ReactNode[] }> = ({ children
     const slider = useRef<HTMLDivElement>(null)
     const [curr, setCurr] = useState(0)
     const direc = useRef<"left" | "right">("right")
+    const timer = useRef<NodeJS.Timer>(null)
 
     useEffect(() => {
-        slider.current!.addEventListener("scroll", () => {
+        slider.current.addEventListener("scroll", () => {
             let width = window.getComputedStyle(slider.current!).width
             width = width.substring(0, width.length - 2)
             let scrollPos = slider.current!.scrollLeft
@@ -19,9 +20,10 @@ const Carousel: React.FunctionComponent<{ children: ReactNode[] }> = ({ children
     }, [])
 
     const scroll = (dir: string) => {
-        let width = window.getComputedStyle(slider.current!).width
+        if (!slider.current) return
+        let width = window.getComputedStyle(slider.current).width
         width = width.substring(0, width.length - 2)
-        let scrollPos = slider.current!.scrollLeft
+        let scrollPos = slider.current.scrollLeft
         const widthNum = Math.floor(Number(width))
         let dist = 0
         if (dir === "right") {
@@ -35,17 +37,16 @@ const Carousel: React.FunctionComponent<{ children: ReactNode[] }> = ({ children
         });
         setCurr(dist / widthNum)
     }
-    let timer: NodeJS.Timer
     useEffect(() => {
 
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     if (slider.current) {
-                        timer = setInterval(() => {
+                        timer.current = setInterval(() => {
                             scroll(direc.current)
 
-                        }, 2000)
+                        }, 3000)
                     }
                 }
             },
@@ -54,11 +55,13 @@ const Carousel: React.FunctionComponent<{ children: ReactNode[] }> = ({ children
 
         if (slider.current) {
             observer.observe(slider.current);
+            if (timer.current) {
+                clearInterval(timer.current)
+            }
         }
 
         return () => {
             observer.disconnect()
-            clearInterval(timer)
         }
 
     }, [])

@@ -28,7 +28,7 @@ const NavBar = () => {
           </li>
           <li className="nav-link"
             style={{
-              backgroundColor: router.pathname === "/event" ? "red" : ""
+              backgroundColor: router.pathname === "/events" ? "red" : ""
             }}>
             <Link href={"/events"}>Events</Link>
           </li>
@@ -56,16 +56,24 @@ const NavBar = () => {
             <IoMdClose size={20} color={"black"} />
           </div>
           <ul className="flex flex-col gap-5 w-full relative mt-10 uppercase  m-10">
-            <li className="nav-link l-sm">
+            <li className="nav-link l-sm" style={{
+              backgroundColor: router.pathname === "/" ? "red" : ""
+            }}>
               <Link href={"/"}>Home</Link>
             </li>
-            <li className="nav-link l-sm">
+            <li className="nav-link l-sm" style={{
+              backgroundColor: router.pathname === "/delegates" ? "red" : ""
+            }}>
               <Link href={"/delegates"}>Delegates</Link>
             </li>
-            <li className="nav-link l-sm">
+            <li className="nav-link l-sm" style={{
+              backgroundColor: router.pathname === "/events" ? "red" : ""
+            }}>
               <Link href={"/events"}>Events</Link>
             </li>
-            <li className="nav-link l-sm">
+            <li className="nav-link l-sm" style={{
+              backgroundColor: router.pathname === "/blog" ? "red" : ""
+            }}>
               <Link href={"/blog"}>Blog</Link>
             </li>
           </ul>
