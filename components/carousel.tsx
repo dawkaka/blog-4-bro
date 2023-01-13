@@ -39,30 +39,10 @@ const Carousel: React.FunctionComponent<{ children: ReactNode[] }> = ({ children
     }
     useEffect(() => {
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    if (slider.current) {
-                        timer.current = setInterval(() => {
-                            scroll(direc.current)
+        timer.current = setInterval(() => {
+            scroll(direc.current)
 
-                        }, 3000)
-                    }
-                }
-            },
-            { threshold: 0.5 }
-        );
-
-        if (slider.current) {
-            observer.observe(slider.current);
-            if (timer.current) {
-                clearInterval(timer.current)
-            }
-        }
-
-        return () => {
-            observer.disconnect()
-        }
+        }, 3000)
 
     }, [])
 
