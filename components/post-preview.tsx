@@ -24,7 +24,7 @@ const PostPreview = ({
   slug,
 }: Props) => {
   return (
-    <div>
+    <div className="flex flex-col">
       <div className="mb-5">
         <img
           src={coverImage}
@@ -48,6 +48,13 @@ const PostPreview = ({
       <div className="mb-4 text-[grey]">
         <DateFormatter dateString={date} />
       </div>
+      <Link
+        as={`/posts/${slug}`}
+        href="/posts/[slug]"
+        className="bg-[red] text-white px-5 py-2 mt-[auto]"
+      >
+        Read more
+      </Link>
     </div>
   )
 }

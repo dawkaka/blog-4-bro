@@ -1,9 +1,11 @@
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { useState } from "react"
 import { IoMdClose } from 'react-icons/io'
 
 const NavBar = () => {
   const [opened, setOpened] = useState(false)
+  const router = useRouter()
   return (
     <nav className="w-[100%] mx-[auto] h-[70px] px-5 flex flex-col justify-center items-center bg-[var(--p-color)] fixed z-20 text-[white]">
       <div className="w-[min(100%,1100px)] gap-5 flex items-center justify-between">
@@ -11,16 +13,28 @@ const NavBar = () => {
           <img src={"/assets/npp-logo2.png"} alt="npp logo" width={"100%"} />
         </div>
         <ul className="w-[70%] md:w-[50%] h-[100%] hidden  sm:flex justify-between gap-2 uppercase text-center">
-          <li className="nav-link">
+          <li className="nav-link"
+            style={{
+              backgroundColor: router.pathname === "/" ? "red" : ""
+            }}
+          >
             <Link href={"/"}>Home</Link>
           </li>
-          <li className="nav-link">
+          <li className="nav-link"
+            style={{
+              backgroundColor: router.pathname === "/delegates" ? "red" : ""
+            }}>
             <Link href={"/delegates"}>Delegates</Link>
           </li>
-          <li className="nav-link">
+          <li className="nav-link"
+            style={{
+              backgroundColor: router.pathname === "/event" ? "red" : ""
+            }}>
             <Link href={"/events"}>Events</Link>
           </li>
-          <li className="nav-link">
+          <li className="nav-link" style={{
+            backgroundColor: router.pathname === "/blog" ? "red" : ""
+          }}>
             <Link href={"/blog"}>Blog</Link>
           </li>
         </ul>

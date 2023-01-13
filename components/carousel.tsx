@@ -1,10 +1,12 @@
 import { ReactNode, useEffect, useRef, useState } from "react"
 import { MdOutlineNavigateNext } from 'react-icons/md'
+import { clearInterval } from "timers"
 
 const Carousel: React.FunctionComponent<{ children: ReactNode[] }> = ({ children }) => {
     const files = new Array(children.length)
     const slider = useRef<HTMLDivElement>(null)
     const [curr, setCurr] = useState(0)
+    const direc = useRef<"left" | "right">("right")
 
     useEffect(() => {
         slider.current!.addEventListener("scroll", () => {
@@ -33,6 +35,40 @@ const Carousel: React.FunctionComponent<{ children: ReactNode[] }> = ({ children
         });
         setCurr(dist / widthNum)
     }
+    let timer: NodeJS.Timer
+    useEffect(() => {
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    if (slider.current) {
+                        timer = setInterval(() => {
+                            scroll(direc.current)
+
+                        }, 2000)
+                    }
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        if (slider.current) {
+            observer.observe(slider.current);
+        }
+
+        return () => {
+            observer.disconnect()
+            clearInterval(timer)
+        }
+
+    }, [])
+
+    if (curr === files.length) {
+        direc.current = "left"
+    } else if (curr < 0) {
+        direc.current = "right"
+    }
+
     // useEffect(() => {
     //     currFunc(curr)
     // }, [curr, currFunc])
