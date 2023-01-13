@@ -15,7 +15,7 @@ const Layout = ({ preview, children }: Props) => {
       <Meta />
       <div>
         <NavBar />
-        <main>{children}</main>
+        <main className="mt-[70px]">{children}</main>
       </div>
       <Footer />
     </>

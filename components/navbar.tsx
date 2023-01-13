@@ -7,7 +7,7 @@ const NavBar = () => {
   const [opened, setOpened] = useState(false)
   const router = useRouter()
   return (
-    <nav className="w-[100%] mx-[auto] h-[70px] px-5 flex flex-col justify-center items-center bg-[var(--p-color)] fixed z-20 text-[white]">
+    <nav className="w-[100%] mx-[auto] h-[70px] top-0 px-5 flex flex-col justify-center items-center bg-[var(--p-color)] fixed z-20 text-[white]">
       <div className="w-[min(100%,1100px)] gap-5 flex items-center justify-between">
         <div className="relative w-[50px] sm:w-[65px]">
           <img src={"/assets/npp-logo2.png"} alt="npp logo" width={"100%"} />

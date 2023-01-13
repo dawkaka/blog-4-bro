@@ -19,3 +19,18 @@ export default function Delegate({ name, picture, position }: Props) {
         </article>
     )
 }
+
+
+export const DelegatePage = ({ name, picture, position }: Props) => {
+    return (
+        <article className="shrink-0 flex flex-col md:flex-row items-center gap-4 rounded px-5 py-10 justify-start w-[min(100%,850px)]">
+            <div className="relative">
+                <img src={picture} width={"100%"} alt={name} style={{ aspectRatio: 1 / 1, objectFit: "cover" }} />
+            </div>
+            <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl">{name}</h3>
+                <p className="font-normal text-[16px] mt-2 text-[red] uppercase">{position}</p>
+            </div>
+        </article>
+    )
+}
