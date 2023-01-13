@@ -27,6 +27,7 @@ export default function Index({ allPosts }: Props) {
         <Container>
           {morePosts.length > 0 && <MoreStories posts={allPosts} />}
         </Container>
+        <MediaUpdate />
       </Layout>
     </>
   )
@@ -58,6 +59,26 @@ const Goals = () => {
             <p>
               that the key to creating prosperity for all is to unleash the energies of the private sector through the development of an entrepreneurial free enterprise economy            </p>
           </div>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+const MediaUpdate = () => {
+  return (
+    <section className="mb-20">
+      <Container>
+        <h2 className="mb-8 text-5xl md:text-6xl font-bold tracking-tighter leading-tight">
+          Media Update
+        </h2>
+        <div className="grid gap-2 grid-cols-2 sm:gap-5 md:grid-cols-3 md:gap-10">
+          <img src="/assets/nana-portrait.png" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover" }} alt="" />
+          <img src="/assets/nana-portrait.png" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover" }} alt="" />
+          <img src="/assets/nana-portrait.png" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover" }} alt="" />
+          <img src="/assets/nana-portrait.png" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover" }} alt="" />
+          <img src="/assets/nana-portrait.png" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover" }} alt="" />
+          <img src="/assets/nana-portrait.png" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover" }} alt="" />
         </div>
       </Container>
     </section>
