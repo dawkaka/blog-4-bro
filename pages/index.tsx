@@ -23,7 +23,7 @@ export default function Index({ allPosts }: Props) {
         <Goals />
         <Delegates />
         <Container>
-          {allPosts.length > 0 && <MoreStories posts={allPosts} />}
+          {allPosts.length > 0 && <MoreStories posts={allPosts} home />}
         </Container>
         <MediaUpdate />
       </Layout>
