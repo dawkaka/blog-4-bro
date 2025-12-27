@@ -193,7 +193,7 @@ tabs:
       400\n  {{time_filter}}\nGROUP BY time, error_category\nORDER BY time DESC\nLIMIT
       10000\n"
     theme: roma
-    title: HTTP Errors (4xx & 5xx) - Incoming
+    title: HTTP Errors eeeeeeeeeeeeee(4xx & 5xx) - Incoming
     type: timeseries
     unit: errors
   - hide_subtitle: true
